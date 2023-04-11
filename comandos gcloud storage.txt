@@ -1,0 +1,110 @@
+================================================================
+TRANSFERENCIA DE ARCHIVOS DE UN SERVIDOR LOCAL A GCS CON GSUTIL
+================================================================
+
+--gcloud init
+
+gcloud auth loging
+gcloud auth list
+gcloud project list
+gcloud config set project bigdatamigration-382020
+
+--gcloud config set account 
+
+gsutil cp C:\\Users/Juan/Documents/bigdatamigration/data/departments.csv gs://bucket_migracion_raw/departamentos
+gsutil cp C:\\Users/Juan/Documents/bigdatamigration/data/hired_employees.csv gs://bucket_migracion_raw/empleados
+gsutil cp C:\\Users/Juan/Documents/bigdatamigration/data/jobs.csv gs://bucket_migracion_raw/trabajos/
+
+
+--gcloud auth activate-service-account garciayuffra --key-file=C:\Users\Juan\Documents\bigdatamigration\accesskey-migracion.json
+
+--gcloud iam service-accounts get-iam-policy migracion@bigdatamigration-382020.iam.gserviceaccount.com --format json
+
+gsutil cp gs://objects-big-data-migration/jobs.py - | python
+gsutil cp gs://objects-big-data-migration/departments.py - | python
+gsutil cp gs://objects-big-data-migration/hired_employees.py - | python
+gsutil cp gs://objects-big-data-migration/test.py - | python
+
+
+sudo apt-get install unixodbc-dev
+sudo apt-get install msodbcsql18
+odbcinst -q -d -n "ODBC Driver 18 for SQL Server"
+
+curl ifconfig.me - ip publica
+
+
+======
+DOCKER
+======
+
+gcloud auth loging
+gcloud auth configure-docker us-east1-docker.pkg.dev #autorizar acceso a repositorio artifact registry
+docker build -t contenedor-job-migracion-dataflow .
+docker run contenedor-job-migracion-dataflow
+docker tag contenedor-job-migracion-dataflow:latest  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-dataflow:4.0
+docker push  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-dataflow:4.0
+docker pull us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-dataflow:4.0
+docker ps -aq --ver contenedores
+docker exec -it 8560f50b7b74  /bin/bash   - entrar a la shell del contenedor
+cat archivo.txt - para ver su contenido
+ctrl + c para salir de cat
+exit - salir
+
+docker build -t contenedor-job-migracion-trabajos -f Dockerfile-trabajos .
+docker build -t contenedor-job-migracion-empleados -f Dockerfile-empleados .
+docker build -t contenedor-job-migracion-departamentos -f Dockerfile-departamentos .
+
+docker tag contenedor-job-migracion-departamentos:latest  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-departamentos:1.0
+docker tag contenedor-job-migracion-trabajos:latest  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-trabajos:1.0
+docker tag contenedor-job-migracion-empleados:latest  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-empleados:1.0
+
+docker push  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-departamentos:1.0
+docker push  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-trabajos:1.0
+docker push  us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-empleados:1.0
+
+
+docker pull us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-departamentos:1.0
+docker pull us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-trabajos:1.0
+docker pull us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-empleados:1.0
+
+
+gcloud dataflow jobs run migracion_jobs --gcs-location gs://objects-big-data-migration/jobs.py --region us-east1 --project bigdatamigration-382020
+
+#ejecuta un contenedor en cloudshell con una ip privada asignada la cual es compartida con la ip publica de la shell
+
+ docker run -p 8080:80 --name mi_contenedor us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-dataflow:4.0
+	
+docker run us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-departamentos:1.0
+docker run us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-trabajos:1.0
+docker run us-east1-docker.pkg.dev/bigdatamigration-382020/migracionrepo/contenedor-job-migracion-empleados:1.0
+
+==============
+BORRAR BUCKET
+===============
+
+
+gcloud storage rm --recursive gs://BUCKET_NAME/
+
+
+
+
+
+python -m test.py \
+    --runner DataflowRunner \
+    --project bigdatamigration-382020 \
+    --temp_location gs://nombre_del_bucket/temp \
+    --staging_location gs://nombre_del_bucket/staging \
+    --region us-central1 \
+    --worker_harness_container_image gcr.io/nombre_del_proyecto/nombre_de_la_imagen
+
+
+python dataflow_job.py \
+    --runner=DataflowRunner \
+    --project=<project-id> \
+    --temp_location=gs://<bucket-name>/temp \
+    --region=<region> \
+    --setup_file=./setup.py \
+    --staging_location=gs://<bucket-name>/staging \
+    --requirements_file=./requirements.txt \
+    --extra_package=./dist/my_dataflow_package-0.0.1.tar.gz
+

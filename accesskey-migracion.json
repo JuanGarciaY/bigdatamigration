@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bigdatamigration-382020",
+  "private_key_id": "3b6f791a084489709d79e51d2a4f4a4739172b20",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCjE0j2IitrBj2t\nQ3LHBsS3D/tt1gtzW5SogxcwaAytofwVNxQZCIXlRaHLK7WYYUkxXWZB1HyTJPw2\nWxJrRGiQgCAB+4pDuodnCj4ua12JBa1fZFHFRZ9R42Y4AAsPXhfO0QI4ajv3OeBa\nLGBlPafKx2hlm3oP2OY5ilzQCFDBnw04eKq4ymP9OHPYax93770vYZBZvkY2vkoQ\nWyDqKgXKik6uUj+H/sABAS+G4qauVt7pyLPfK7na0uCeDcobWP4OXDmRvRG29LWT\n1zxE9IQ8BKWO0xrEGsEQp5BFK0KenKQzjZ6RT61ldTvmkRhYLqN2oyO4qxg697D2\n3tLAMmN5AgMBAAECgf9aWSo93lsvxcVmDnheIYyF39TtMCl9QBVHR1m8TT649DCK\n5c5nZXwetPVuxZ4BTo++nysy+FwMf0aSLDgy4IkOMJjggFGaNJMlWLIasGFMs63a\nVo+h5sYzbZ60Z/xjXJN+102OSU1FK6D2VJ++Ij/+7iZoz5BQ4gVWMSeQGmCjjxi0\nmBKwqiwzYFTecjxDYK2eitqAtwCBH016HOwIZGw48/Nu2D7hnQqtDdAfsRgRjT4h\nN9FReKR2Dl1IZQvhXbzfuQtqZWStgmlNpNfs4OyjQpvr+OpTN1qHsbGH06bVQBsJ\n30qU6twwdY5LLIcC0812ipyl+yhg9tumiqzgZ8ECgYEA1BOvZU4bLj73zr3YLLNA\ngwouS6iLa86EaSz4nj86MCNrZNK3idzZGYsA45X/Ci2rBa91Z09ygI7xnIiFpAO+\nib1vyKNzKZWDZt7nxnlxhpSWKayV+ZXdbQUlWowoN8RP8jIQsNecWcRLwBRbRRP6\n0rjUMMOXVot4YFXpyM844vECgYEAxNmJmIhWagdDmFPUo+An9nc6PH0IbbceQBHd\nIKMmXR3ehn3Q1gzeMYUroo7P9y6VoKV9NVUksD5JEFUjrnhTPz0j8IfQuCqkllb6\noGMGuLx09RZvXDTryJ7TVE1H5xE52rJpYaAN+rG7irTqpE4XRdbB4N2++UozYZF+\n1D3W+QkCgYA7OZwb0Goqyg7uP3olUZHMhoVTP6hf3PaBYLu1hba8RsfxCh+Tcod2\naKlA5Vyp/QLrvYot5bP2TvUOX9niaeFGGg8jmvHIRSbDDbDwbm3TxZ8B2F6xqraB\ngZRi6w04NayV2IFswWm6b+UvqP+sFN5RBqjLTXPwCVb+oD9/gs9CIQKBgHWzZNRx\nYMoRAdfI+DHsS7jQ3V9hm3KOtWW1yLRFGSFARNfBzubN1uVhLRALuEmh7xGZId6L\nxF4lP+amIammhJAhbKXbb29PAA5sf3r6+v/mn0AUZA2MDxdr8AxOERoWcLNVTjFz\nVCh7sRlkx4/qqXu2x0I/FHtWZJaIOn+JYkqRAoGBAJx23QRWThwFCQueUsufM+t+\nmHW8bapx2uGgYga/ISYTajs+XJ2MPAP/mHzKTfVwcSzQa7HcDJwiRDpEXC7XfDtr\n6K7ehg0b/DaEflPiyXpoCQzGEYXu9jATCAitFIih9HNIFtplgbGAn5HSa1e+3oFk\nHjCFXr+UvcysCnOlnqpm\n-----END PRIVATE KEY-----\n",
+  "client_email": "migracion@bigdatamigration-382020.iam.gserviceaccount.com",
+  "client_id": "102611601293034757345",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/migracion%40bigdatamigration-382020.iam.gserviceaccount.com"
+}

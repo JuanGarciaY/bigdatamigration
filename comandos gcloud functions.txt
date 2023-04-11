@@ -1,0 +1,65 @@
+=================
+COMANDOS GCLOUD:
+=================
+
+CLOUD FUNCTIONS:
+=================
+
+
+-Crear o actualizar funcion:
+=============================
+
+gcloud functions deploy python-http-function --gen2 --runtime=python310 --region=us-east1 --source=. --entry-point=insert_new_data --trigger-http --allow-unauthenticated --timeout=3600
+
+
+En powershell o cmd ejecutar todo en una sola línea o utilizar en circunflejo para varias lineas (^)
+
+
+-Revisar detalle de una funcion:
+================================
+
+gcloud functions describe  nombre_funcion --region region   
+
+
+-Revisar parámetros de configuración de gcloud utilizados como la cuenta, projecto, etc:
+============================================================================================
+
+gcloud config list 
+
+
+
+-Instalar functions framework:
+===============================
+
+pip install functions-framework
+
+-Ejecutar funcion localmente:
+
+functions-framework --target=my_function
+
+
+-Eliminar funcion:
+===================
+
+gcloud functions delete function_name --gen2 --region REGION 
+
+
+
+
+-Probar funcion con curl (cmd, powershell):
+==========================================
+
+curl -m 70 -X POST https://python-http-function-htq5aeiynq-ue.a.run.app ^
+    -H "Authorization: bearer $(gcloud auth print-identity-token)" ^
+    -H "Content-Type: application/json" ^
+    -d '{}'
+
+
+
+https://cloud.google.com/docs/authentication/provide-credentials-adc?hl=es-419#local-dev
+
+https://cloud.google.com/functions/docs/writing/write-http-functions?hl=es-419
+
+https://cloud.google.com/functions/docs/tutorials/http?hl=es-419
+
+https://cloud.google.com/code/docs/vscode/setup-local-functions-dev-environment?hl=es-419

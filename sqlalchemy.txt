@@ -1,0 +1,66 @@
+SQL ALCHEMY:
+------------
+
+Conectar al motor y crear metadatos (para almacenar esquemas de tablas):
+-----------------------------------------------------------------------
+from sqlalchemy import create_engine, Metadata
+create_engine("mysql+pymysql://root:root@local	host:3306/storedb")	
+meta = MetaData()
+meta.create_all(engine) : crea todas las tablas no existentes en base de datos
+
+
+Crear sesion o conexión :
+-----------------------
+from sqlalchemy.orm import sessionmaker,Session
+sessionmaker(engine)
+Session(session)
+engine.connect()
+
+Manejo de sesion:
+----------------
+session.add()
+session.rollback()
+session.commit()
+session.close()
+
+
+Manejo de consultas:
+--------------------
+conn_session.query()
+conn_session.execute()
+
+Manejo de resultados:
+---------------------
+.first()
+.all()
+.fetachall()
+row._asdict()
+
+
+Operaciones con objetos:
+------------------------
+text("Consulta SQL")	
+tabla.select().where()
+tabla.update()
+tabla.insert().values(dict)
+tabla.delete()
+
+Uso de funciones:
+-----------------
+func.count() - select([func.count()]).select_from(users) equals to 'SELECT count(*) AS count_1 FROM some_table'
+
+Manejo de tablas y columnas:
+-------------------------------
+from sqlalchemy import Column, Table..
+from sqlalchemy.sql.sqltypes..
+
+Table(name,metadata,Columns..)
+__tablename__ 
+Column(name,Type,primary_key)	
+Column(ForeignKey(tablename.id))
+
+Nota:
+-----
+Es importante tener en cuenta que las aplicaciones que requieran trabajar con el ORM de SQL Alchemy deben utilizar la sesión session(), pero para aquellas que solo vayan a ejecutar consultas SQL directamente es mejor utilizar la conexión 'engine.connect()'.
+
+En un enfoque API, se puede crear un esquema de objetos aparte, que sirva como modelo y permita validar las respuestas HTTP que se envian y los datos que se reciben en las solicitudes utilizando pydantic y typing

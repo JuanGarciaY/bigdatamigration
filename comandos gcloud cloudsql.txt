@@ -1,0 +1,15 @@
+
+-Para desarrollo local agregar IP a redes permitidas en conexiones.
+
+================
+DELETE INSTANCE
+================
+
+-Quitar proteccion contra eliminación de instancia (la cuenta debe tener los permisos necesarios cloudsql.instances.update, cloudsql.editor): 
+
+gcloud sql instances patch [INSTANCE_NAME] --no-deletion-protection
+
+
+-Eliminar instancia:
+
+gcloud sql instances delete INSTANCE_NAME

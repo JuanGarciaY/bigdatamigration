@@ -1,0 +1,22 @@
+gcloud functions deploy python-http-function ^
+--gen2 ^
+--runtime=python310 ^
+--region=us-east1 ^
+--source=. ^
+--entry-point=my_function ^
+--trigger-http ^
+--allow-unauthenticated
+
+
+gcloud functions deploy python-http-function --gen2 --runtime=python310 --region=us-east1 --source=. --entry-point=my_function --trigger-http --allow-unauthenticated
+
+curl -m 70 -X POST https://python-http-function-htq5aeiynq-ue.a.run.app ^
+    -H "Authorization: bearer $(gcloud auth print-identity-token)" ^
+    -H "Content-Type: application/json" ^
+    -d '{}'
+
+
+curl https://python-http-function-htq5aeiynq-ue.a.run.app ^
+    -H "Authorization: bearer $(gcloud auth print-identity-token)" ^
+    -H "Content-Type: application/json" ^
+    -d '{}'
