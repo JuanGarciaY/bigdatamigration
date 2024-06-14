@@ -1,5 +1,3 @@
-<p><a target="_blank" href="https://app.eraser.io/workspace/z98bCGO6JnFa1srX7SGi" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
-
 # Tags
 - [﻿Tag1](#tag1) 
 - [﻿Tag2](#tag2) 
@@ -50,14 +48,6 @@ It can span multiple lines.
 Let's rename *our-new-project* to *our-old-project*.
 
 
-
-[﻿View on canvas](https://app.eraser.io/workspace/z98bCGO6JnFa1srX7SGi?elements=fpCBYVsAyqZFz8ADGVD9ZQ) 
-
-
-<!-- eraser-additional-content -->
 ## Diagrams
-<!-- eraser-additional-files -->
-<a href="/README-AWS Cloud Architecture for Ingestion Platform-1.eraserdiagram" data-element-id="S7MqjY2AHoYaKjvxj-0zq"><img src="/.eraser/z98bCGO6JnFa1srX7SGi___PB6YnHLzNiMHflMoKlAjQdn2ryj2___---diagram----f0a09b06b324390251459be114ed7379-AWS-Cloud-Architecture-for-Ingestion-Platform.png" alt="" data-element-id="S7MqjY2AHoYaKjvxj-0zq" /></a>
-<!-- end-eraser-additional-files -->
-<!-- end-eraser-additional-content -->
-<!--- Eraser file: https://app.eraser.io/workspace/z98bCGO6JnFa1srX7SGi --->
+---
+<img src="aws-cloud-arch.svg" /></a>
